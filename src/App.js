@@ -15,6 +15,10 @@ class App extends Component {
     const newItem = event.target.value;
     const items = [...this.state.charItems]
     items.push(newItem)
+<<<<<<< HEAD
+=======
+    // console.log(this.state.charItems)
+>>>>>>> ecdacbd52cf14a5614c7317bac55a158522e4c28
 
     this.setState({
       username: event.target.value,
