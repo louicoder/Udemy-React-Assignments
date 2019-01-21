@@ -9,7 +9,8 @@ const userInput = (props) => {
     }
     return (
         <div className="UserInput">
-            <input onChange={props.inputChanged} value={props.persons[0].name}  style={style}></input>
+            <p>Enter a word in the text area to see it in action</p>
+            <input onChange={props.inputChanged} style={style} value={props.username}></input>
         </div>
     );
 }
