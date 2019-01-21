@@ -1,5 +1,5 @@
 import React from 'react';
-import './UserInput.css'
+import './UserInput.css';
 
 const userInput = (props) => {
     const style = {
@@ -8,10 +8,11 @@ const userInput = (props) => {
         font: 'inherit'
     }
     return (
-        <div className="UserInput">
-            <p>Enter a word in the text area to see it in action</p>
-            <input onChange={props.inputChanged} style={style} value={props.username}></input>
-        </div>
+            <div className="UserInput">
+                <p>Enter a word in the text area to see it in action</p>
+                <input onChange={props.inputChanged} style={style} value={props.username}></input>
+            </div>
+        
     );
 }
 

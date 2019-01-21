@@ -8,17 +8,14 @@ class App extends Component {
   state = {
     username: '',
     textLength: 0,
-    charItems: []
+    charItems: [],
+    display: true
   }
 
   onNameChangedHandler = (event) => {
     const newItem = event.target.value;
     const items = [...this.state.charItems]
     items.push(newItem)
-<<<<<<< HEAD
-=======
-    // console.log(this.state.charItems)
->>>>>>> ecdacbd52cf14a5614c7317bac55a158522e4c28
 
     this.setState({
       username: event.target.value,
@@ -34,36 +31,50 @@ class App extends Component {
     this.setState({
       charItems: characters
     })
-    
+
+  }
+
+  toggleDisplay = () => {
+    const { display } = { ...this.state }
+
+    this.setState({
+      display: !display
+    })
+    // console.log(this.state)
   }
 
   render() {
     const styles = {
       margin: 'auto',
       marginTop: '5%'
+      
+
     }
-    
+
     return (
-      <div className="App" style={styles}>
+      
+        <div className="App" style={styles}>
 
-        <UserInput
-        inputChanged={this.onNameChangedHandler}
-        />
+          <UserInput
+            inputChanged={this.onNameChangedHandler}
+          />
 
-        <InputValidation
-        textLength={this.state.username.length}
-        username={this.state.username.length}
-        />
+          <InputValidation
+            textLength={this.state.username.length}
+            username={this.state.username.length}
+          />
 
-        <CharComponent
-        list={this.state.charItems}
-        click={this.clickedParagraph}
-        index
-        />
+          <CharComponent
+            list={this.state.charItems}
+            nameLength={this.state.username.length}
+            click={this.clickedParagraph}
+            toggleDisplay={this.toggleDisplay}
+            show={this.state.display}
+          />
 
-      </div>
-
-    );
+        </div>
+    
+    )
   }
 }
 

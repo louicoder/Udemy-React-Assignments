@@ -1,4 +1,5 @@
 import React from 'react';
+import Radium from 'radium';
 
 const InputValidation = (props) => {
     const styles = {
@@ -17,11 +18,14 @@ const InputValidation = (props) => {
     const text = props.textLength <= 5 ? ( <p style={paraStyle}>Text is too short</p>) : ( <p style={paraStyle}>Text is long enough</p>);
 
     return (
-        <div>
-            {text}
-            <p style={styles}>{props.username}</p>
-        </div>
+
+            <div>
+                {text}
+                <p style={styles}>{props.username}</p>
+            </div>
+
+        
     );
 }
 
-export default InputValidation;
+export default Radium(InputValidation);
