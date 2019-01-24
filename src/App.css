@@ -2,6 +2,24 @@
   /* margin: 16px; */
   width:30%;
   padding: 16px;
-  border: 1px solid #ccc;
-  box-shadow: 0px 3px 10px 5px #eee;
+  border: none;
+  box-shadow: 0px 2px 20px 2px #eee;
+  margin: auto;
+  margin-top: 10%;
 }
+
+/* .App button {
+  background-color: red;
+} */
+/* 
+.red {
+  color: red;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.App button{
+  border: 1px solid blue;
+} */

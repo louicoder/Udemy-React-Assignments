@@ -1,15 +1,17 @@
 import React, { Component } from 'react';
-import './App.css';
-import InputValidation from './inputValidation/InputValidation';
-import UserInput from './userInput/UserInput';
-import CharComponent from './charComponent/CharComponent';
+import style from './App.css';
+import InputValidation from './components/inputValidation/InputValidation';
+import UserInput from './components/userInput/UserInput';
+import CharComponent from './components/charComponent/CharComponent';
+import WithClass from './components/hoc/WithClass'
 
 class App extends Component {
   state = {
     username: '',
     textLength: 0,
     charItems: [],
-    display: true
+    display: true,
+    clickCounter: 0
   }
 
   onNameChangedHandler = (event) => {
@@ -37,43 +39,50 @@ class App extends Component {
   toggleDisplay = () => {
     const { display } = { ...this.state }
 
-    this.setState({
-      display: !display
+    this.setState((prevState, props) => {
+      return {
+        display: !display,
+        clickCounter: prevState.clickCounter + 1
+      }
     })
-    // console.log(this.state)
+    console.log(this.state.clickCounter)
   }
 
   render() {
-    const styles = {
-      margin: 'auto',
-      marginTop: '5%'
-      
 
+    const classes = []
+
+    if (this.state.charItems.length <= 2) {
+      classes.push(style.red)
+    }
+
+    if (this.state.charItems.length <= 1) {
+      classes.push(style.bold)
     }
 
     return (
-      
-        <div className="App" style={styles}>
+      <WithClass classes={style.App}>
 
-          <UserInput
-            inputChanged={this.onNameChangedHandler}
-          />
+        <p className={classes.join(' ')}>This is working very well</p>
+        <UserInput
+          inputChanged={this.onNameChangedHandler}
+        />
 
-          <InputValidation
-            textLength={this.state.username.length}
-            username={this.state.username.length}
-          />
+        <InputValidation
+          textLength={this.state.username.length}
+          username={this.state.username.length}
+        />
 
-          <CharComponent
-            list={this.state.charItems}
-            nameLength={this.state.username.length}
-            click={this.clickedParagraph}
-            toggleDisplay={this.toggleDisplay}
-            show={this.state.display}
-          />
+        <CharComponent
+          list={this.state.charItems}
+          nameLength={this.state.username.length}
+          click={this.clickedParagraph}
+          toggleDisplay={this.toggleDisplay}
+          show={this.state.display}
+        />
 
-        </div>
-    
+      </WithClass>
+
     )
   }
 }

@@ -1,0 +1,42 @@
+.Button {
+    padding: 16px;
+    /* margin: auto; */
+    cursor: 'none';
+    /* background-color: red; */
+    font: inherit;
+    color: white;
+    width: 400px;
+}
+
+.green {
+    background-color: green
+}
+
+.red {
+    background-color: red;
+}
+
+.displayButton {
+    padding:10px;
+    font: inherit;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.charClass {
+    background-color: #eee;
+    padding:10px;
+    /* display: inline-block; */
+}
+
+@media (min-width: 900px) {
+    .listContainer {
+        width: 50%;
+        display: inline-block;
+    }
+}
+
+/* .listContainer {
+    border: 1px solid #eee;
+} */

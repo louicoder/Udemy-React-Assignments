@@ -1,5 +1,5 @@
 import React from 'react';
-import Radium from 'radium';
+import HocWithProps from '../hoc/HocWithProps';
 
 const InputValidation = (props) => {
     const styles = {
@@ -28,4 +28,4 @@ const InputValidation = (props) => {
     );
 }
 
-export default Radium(InputValidation);
+export default HocWithProps(InputValidation);
