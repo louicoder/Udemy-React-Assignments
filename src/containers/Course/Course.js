@@ -9,18 +9,23 @@ class Course extends Component {
     }
 
     componentDidMount() {
-        this.setState({
-            id: this.props.match.params.id,
-            title: this.props.match.params.title
-        })
-        // console.log(this.props)
+
+        // console.log(decodeURIComponent(this.props.location.search).split('?')[1])
+    }
+
+    componentDidUpdate() {
+        
+        
     }
 
     render () {
-        // console.log(this.props)
+        const values = decodeURIComponent(this.props.location.search).split('?')[1]
+        let t_title = values.split('&')[0]
+        t_title = t_title.split('=')[1]
+        
         return (
             <div>
-                <h1>{this.props.match.params.title}</h1>
+                <h1>{t_title}</h1>
                 {/* <h1>{this.props.title}</h1> */}
 
                 <p>You selected the Course with ID: {this.props.match.params.id}</p>

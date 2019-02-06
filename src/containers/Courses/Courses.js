@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link, Route, Switch} from 'react-router-dom';
+import {Link, Route} from 'react-router-dom';
 import Course from '../Course/Course'
 
 import './Courses.css';
@@ -14,7 +14,11 @@ class Courses extends Component {
     }
 
     componentDidMount() {
-        // console.log(this.props)
+        
+    }
+
+    selectedCourse = (id) => {
+        
     }
 
     
@@ -26,13 +30,17 @@ class Courses extends Component {
                     {
                         this.state.courses.map( course => {
                             return <Link key={course.id}
-                            to={'/courses/'+course.title+'/' + course.id}><article className="Course" >{course.title}</article></Link>;
+                            to={{
+                                pathname: '/courses/'+course.id,
+                                search: '?' + encodeURIComponent('title='+course.title+'&author=louis')
+                            }}
+                            onClick={() => this.selectedCourse(course.id)}><article className="Course" >{course.title}</article></Link>;
                         } )
                     }
                 
                
                 </section>
-                <Route path="/courses/:title/:id" component={Course}/>
+                <Route path="/courses/:id" component={Course}/>
                 
                     
             </div>
